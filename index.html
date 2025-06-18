@@ -165,6 +165,37 @@
       border-top: 2px solid #b19cd9;
       text-shadow: 1px 1px 1px #000000cc;
     }
+
+    /* Glowing side text */
+    .side-text {
+      position: fixed;
+      top: 50%;
+      left: -60px;
+      transform: translateY(-50%) rotate(-90deg);
+      transform-origin: left center;
+      font-size: 1.2rem;
+      font-weight: 600;
+      color: #e2c4ff;
+      background: #1f173d;
+      padding: 6px 16px;
+      border-radius: 16px 16px 0 0;
+      box-shadow: 0 0 20px #caa5ff, 0 0 40px #b19cd9aa;
+      letter-spacing: 2px;
+      z-index: 999;
+      text-shadow:
+        0 0 6px #caa5ff,
+        0 0 12px #a974ff,
+        1px 1px 2px #000;
+      opacity: 0.95;
+      cursor: default;
+      transition: all 0.3s ease-in-out;
+    }
+
+    @media (max-width: 768px) {
+      .side-text {
+        display: none;
+      }
+    }
   </style>
 </head>
 
@@ -185,19 +216,22 @@
     </div>
   </nav>
 
+  <!-- 🌟 Glowing Side Text -->
+  <div class="side-text">by Shana Irene Taljaard</div>
+
   <main>
     <h1 class="display-5">Welcome to My Portfolio</h1>
     <p class="lead">I'm a creative student who loves making games, creating art, and making fun projects!</p>
-    <img src="images/banner-example.png" alt="Banner image or drawing" class="hero-image" />
+    <img src="img/banner.png" alt="Banner image or drawing" class="hero-image" />
     <a href="showcase.html" class="btn btn-primary">See My Work</a>
   </main>
 
   <section class="preview-section">
     <h2>Recent Art</h2>
     <div class="preview-gallery">
-      <img src="images/art1.png" alt="Art 1">
-      <img src="images/art2.png" alt="Art 2">
-      <img src="images/art3.png" alt="Art 3">
+      <img src="img/art1.jpg" alt="Art 1">
+      <img src="img/art2.jpg" alt="Art 2">
+      <img src="img/art3.jpg" alt="Art 3">
     </div>
   </section>
 
@@ -210,12 +244,6 @@
     </div>
     <p>&copy; Shana Irene Taljaard 2025</p>
   </footer>
-
-  <!-- Floating decorations -->
-  <span class="floating-star" style="top: 15%; left: 10%;">✦</span>
-  <span class="floating-star" style="top: 30%; left: 80%;">✧</span>
-  <span class="floating-star" style="top: 60%; left: 25%;">🕸️</span>
-  <span class="floating-star" style="top: 75%; left: 70%;">🎀</span>
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
