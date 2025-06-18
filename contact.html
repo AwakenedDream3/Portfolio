@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Contact | ShanaTaljaard Portfolio</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;600;700&display=swap" rel="stylesheet" />
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+
+  <style>
+    @keyframes grain {
+      0%, 100% { background-position: 0 0; }
+      50% { background-position: 100% 100%; }
+    }
+
+    html, body {
+      height: 100%;
+      margin: 0; padding: 0;
+      font-family: 'Quicksand', sans-serif;
+      background-color: #0a0a0a;
+      color: #c4a3f3;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+      background-image:
+        radial-gradient(circle, rgba(255 255 255 / 0.02) 1px, transparent 1px),
+        radial-gradient(circle, rgba(255 255 255 / 0.03) 1px, transparent 1px);
+      background-position: 0 0, 25px 25px;
+      background-size: 50px 50px;
+      animation: grain 10s infinite alternate;
+    }
+
+    .navbar {
+      background-color: #1f173d;
+      border-bottom: 2px solid #b19cd9;
+    }
+
+    .navbar-brand, .nav-link {
+      color: #b19cd9 !important;
+      font-weight: 600;
+      text-shadow:
+        1px 1px 0 #000000cc;
+    }
+
+    .navbar-brand:hover, .nav-link:hover {
+      color: #c4a3f3 !important;
+      text-shadow:
+        2px 2px 6px #a584ffcc;
+    }
+
+    .navbar-toggler-icon {
+      background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='%23b19cd9' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
+    }
+
+    .contact-section {
+      flex: 1;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 60px 15px;
+    }
+
+    .container {
+      max-width: 520px;
+      width: 100%;
+    }
+
+    .section-title {
+      color: #b19cd9;
+      font-weight: 700;
+      font-size: 2rem;
+      text-align: center;
+      text-shadow:
+        0 0 10px #b19cd9cc,
+        2px 2px 0 #000000cc;
+      margin-bottom: 1.5rem;
+    }
+
+    p.lead, .contact-section > p {
+      color: #c4a3f3;
+      text-align: center;
+      margin-bottom: 2rem;
+      font-weight: 600;
+      text-shadow: 1px 1px 3px #000000cc;
+    }
+
+    .contact-box {
+      background: linear-gradient(145deg, #1b1032, #2b1b63);
+      border-radius: 16px;
+      padding: 30px 35px;
+      box-shadow:
+        0 0 20px #a78cffaa,
+        inset 0 0 10px #b19cd9bb;
+      color: #c4a3f3;
+    }
+
+    .contact-box p {
+      font-weight: 600;
+      font-size: 1.1rem;
+      margin-bottom: 0.8rem;
+      text-shadow: 1px 1px 3px #000000cc;
+    }
+
+    .contact-box a {
+      color: #c4a3f3;
+      text-decoration: underline;
+    }
+
+    .contact-box a:hover, .contact-box a:focus {
+      color: #e4d5ff;
+      text-decoration: none;
+      outline: none;
+    }
+
+    label.form-label {
+      font-weight: 700;
+      color: #b19cd9;
+      text-shadow: 1px 1px 2px #000000cc;
+    }
+
+    input.form-control,
+    textarea.form-control {
+      background-color: #2b1b63;
+      border: 1.5px solid #b19cd9;
+      color: #c4a3f3;
+      border-radius: 12px;
+      font-weight: 600;
+      transition: border-color 0.3s ease;
+      box-shadow:
+        inset 0 0 6px #5a47a6cc;
+    }
+
+    input.form-control::placeholder,
+    textarea.form-control::placeholder {
+      color: #a492ccbb;
+      font-weight: 400;
+    }
+
+    input.form-control:focus,
+    textarea.form-control:focus {
+      border-color: #c4a3f3;
+      outline: none;
+      box-shadow:
+        0 0 8px #c4a3f3cc,
+        inset 0 0 8px #c4a3f3cc;
+    }
+
+    .btn-primary {
+      background-color: #b19cd9;
+      border: 2px solid #c4a3f3;
+      color: #0a0a0a;
+      width: 100%;
+      padding: 14px;
+      font-size: 1.1rem;
+      font-weight: 700;
+      border-radius: 12px;
+      transition: background-color 0.3s ease, color 0.3s ease, box-shadow 0.3s ease;
+      box-shadow:
+        0 0 8px #b19cd9cc;
+      cursor: pointer;
+      user-select: none;
+    }
+
+    .btn-primary:hover,
+    .btn-primary:focus {
+      background-color: #c4a3f3;
+      color: #1f173d;
+      box-shadow:
+        0 0 14px #d4b7ff;
+      outline: none;
+    }
+
+    .btn-primary:focus-visible {
+      outline: 3px solid #c4a3f3;
+      outline-offset: 4px;
+    }
+
+    footer {
+      background-color: #1f173d;
+      color: #b19cd9;
+      text-align: center;
+      padding: 14px 0;
+      font-weight: 600;
+      font-size: 0.9rem;
+      border-top: 2px solid #b19cd9;
+      text-shadow: 1px 1px 1px #000000cc;
+      flex-shrink: 0;
+    }
+  </style>
+</head>
+<body>
+
+  <nav class="navbar navbar-expand-lg">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="index.html">My Portfolio</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item"><a class="nav-link" href="aboutme.html">About Me</a></li>
+          <li class="nav-item"><a class="nav-link" href="showcase.html">Showcase Art</a></li>
+          <li class="nav-item"><a class="nav-link active" href="contact.html">Contact Info</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <section class="contact-section">
+    <div class="container">
+      <h2 class="section-title">Please Contact Me</h2>
+      <p>Feel free to reach out to me or just to say hi!</p>
+
+      <div class="contact-box">
+        <p><strong>Email:</strong> <a href="mailto:taljaardshana@gmail.com">taljaardshana@gmail.com</a></p>
+        <p><strong>Phone:</strong> <a href="tel:+27792457200">079 245 7200</a></p>
+        <form action="https://formspree.io/f/movwqzvz" method="POST">
+          <input type="hidden" name="_next" value="thankyou.html">
+
+          <div class="mb-3">
+            <label for="name" class="form-label">Your Name</label>
+            <input type="text" class="form-control" name="name" id="name" required />
+          </div>
+          <div class="mb-3">
+            <label for="email" class="form-label">Your Email</label>
+            <input type="email" class="form-control" name="_replyto" id="email" required />
+          </div>
+          <div class="mb-3">
+            <label for="message" class="form-label">Your Message</label>
+            <textarea class="form-control" name="message" id="message" rows="4" required></textarea>
+          </div>
+          <button type="submit" class="btn btn-primary">Send Message</button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+ <!-- Footer -->
+  <footer>
+    <div class="mb-2">
+      <a href="https://ko-fi.com/yourusername" target="_blank">☕ Ko-fi</a>
+      <a href="https://www.instagram.com/theinkedphantom" target="_blank">📸 Instagram</a>
+      <a href="https://bsky.app/profile/nixienu.bsky.social" target="_blank">🌌 Bluesky</a>
+      <a href="https://discord.com/users/804021082025230346" target="_blank">🖤 Discord</a>
+    </div>
+    <p class="mb-0">&copy; Shana Irene Taljaard 2025</p>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+</html>

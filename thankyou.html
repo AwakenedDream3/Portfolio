@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Shana Taljaard | Thank You!</title>
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      background-color: #0d0d0d;
+      color: #d8c67a;
+      margin: 0; padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    .thankyou-box {
+      background-color: #222222;
+      border-radius: 1rem;
+      box-shadow: 0 0 20px #d8c67a99 inset, 0 8px 20px rgba(216, 198, 122, 0.6);
+      padding: 2rem 3rem;
+      max-width: 400px;
+      text-align: center;
+      transition: box-shadow 0.4s ease, background-color 0.4s ease;
+      cursor: default;
+    }
+
+    .thankyou-box:hover, .thankyou-box:focus-within {
+      box-shadow: 0 0 40px #d8c67acc inset, 0 12px 30px rgba(216, 198, 122, 0.8);
+      background-color: #343434;
+    }
+
+    h1 {
+      font-weight: 700;
+      margin-bottom: 1rem;
+      text-shadow: 0 0 10px #d8c67a99;
+    }
+
+    p {
+      font-weight: 600;
+      font-size: 1.1rem;
+      margin-bottom: 2rem;
+      text-shadow: 0 0 6px #d8c67a88;
+    }
+
+    a.btn {
+      display: inline-block;
+      padding: 12px 28px;
+      color: #0d0d0d;
+      background-color: #d8c67a;
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 1.1rem;
+      border-radius: 12px;
+      box-shadow: 0 0 12px #d8c67a88;
+      transition: all 0.3s ease;
+      letter-spacing: 0.05em;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    a.btn:hover, a.btn:focus-visible {
+      background-color: #c1b256;
+      box-shadow: 0 0 24px #d8c67aff;
+      animation: glowPulse 1.5s ease-in-out infinite;
+      outline: none;
+    }
+
+    a.btn:focus-visible {
+      outline: 3px solid #fffccc;
+      outline-offset: 3px;
+      box-shadow: 0 0 30px #d8c67aff;
+    }
+
+    @keyframes glowPulse {
+      0%, 100% {
+        box-shadow: 0 0 12px #d8c67a88;
+      }
+      50% {
+        box-shadow: 0 0 24px #d8c67aff;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="thankyou-box" tabindex="0" aria-label="Thank you message and link">
+    <h1>Thank You!</h1>
+    <p>Your form has been submitted successfully.</p>
+    <a href="index.html" class="btn">Return Home</a>
+  </div>
+</body>
+</html>
