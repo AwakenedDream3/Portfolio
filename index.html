@@ -1,63 +1,79 @@
-<!DOCTYPE html> 
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="description" content="Shana Taljaard's creative portfolio showcasing game development, digital art, and fun projects." />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <title>ShanaTaljaard Portfolio</title>
 
   <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;600;700&display=swap" rel="stylesheet" />
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
 
   <style>
-    @keyframes grain {
-      0%, 100% { background-position: 0 0; }
-      50% { background-position: 100% 100%; }
-    }
-
     html, body {
       height: 100%;
       margin: 0; padding: 0;
       font-family: 'Quicksand', sans-serif;
-      background-color: #0a0a0a; /* very dark background */
-      color: #c4a3f3; /* pastel purple text */
+      background-color: #0a0a0a;
+      color: #c4a3f3;
       display: flex;
       flex-direction: column;
       min-height: 100vh;
-
       background-image:
         radial-gradient(circle, rgba(255 255 255 / 0.02) 1px, transparent 1px),
         radial-gradient(circle, rgba(255 255 255 / 0.03) 1px, transparent 1px);
       background-position: 0 0, 25px 25px;
       background-size: 50px 50px;
       animation: grain 10s infinite alternate;
-      position: relative;
       overflow-x: hidden;
     }
 
+    @keyframes grain {
+      0%, 100% { background-position: 0 0; }
+      50% { background-position: 100% 100%; }
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0) scale(1); opacity: 1; }
+      50% { transform: translateY(-15px) scale(1.1); opacity: 0.7; }
+    }
+
+    @keyframes twinkle {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.5; }
+    }
+
+    .floating-star {
+      position: absolute;
+      color: #b19cd9;
+      font-size: 6rem;
+      user-select: none;
+      pointer-events: none;
+      z-index: 0;
+      animation:
+        float 8s ease-in-out infinite,
+        twinkle 3s ease-in-out infinite;
+      text-shadow: 2px 2px 8px #000000aa;
+    }
+
     .navbar {
-      background-color: #1f173d; /* dark purple-black */
+      background-color: #1f173d;
       border-bottom: 2px solid #b19cd9;
     }
 
     .navbar-brand, .nav-link {
-      color: #b19cd9 !important; /* pastel purple */
+      color: #b19cd9 !important;
       font-weight: 600;
-      text-shadow:
-        1px 1px 0 #000000cc;
+      text-shadow: 1px 1px 0 #000000cc;
     }
 
     .navbar-brand:hover, .nav-link:hover {
       color: #c4a3f3 !important;
-      text-shadow:
-        2px 2px 6px #a584ffcc;
+      text-shadow: 2px 2px 6px #a584ffcc;
     }
 
-    
     .navbar-toggler-icon {
-      background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='%23b19cd9' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
+      background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='%23b19cd9' stroke-width='2' stroke-linecap='round' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
     }
 
     main {
@@ -71,11 +87,8 @@
       color: #c4a3f3;
       padding: 40px 20px;
       margin-top: 1.5rem;
-      position: relative;
       border-radius: 16px;
-      box-shadow:
-        0 0 20px #a78cffaa,
-        inset 0 0 10px #b19cd9bb;
+      box-shadow: 0 0 20px #a78cffaa, inset 0 0 10px #b19cd9bb;
       max-width: 800px;
       margin-left: auto;
       margin-right: auto;
@@ -85,18 +98,23 @@
     h1.display-5 {
       font-weight: 700;
       letter-spacing: 3px;
-      text-shadow:
-        0 0 10px #b19cd9cc,
-        2px 2px 0 #000000cc;
+      text-shadow: 0 0 10px #b19cd9cc, 2px 2px 0 #000000cc;
       margin-bottom: 1rem;
     }
 
-    p.lead {
+    .lead {
       font-weight: 600;
       font-size: 1.25rem;
       text-shadow: 1px 1px 3px #000000cc;
       margin-bottom: 2rem;
+    }
+
+    .hero-image {
+      width: 100%;
       max-width: 600px;
+      border-radius: 12px;
+      margin-bottom: 2rem;
+      box-shadow: 0 0 20px #b19cd9aa;
     }
 
     .btn-primary {
@@ -107,23 +125,36 @@
       padding: 12px 30px;
       border-radius: 12px;
       text-decoration: none;
-      transition: background-color 0.3s ease, color 0.3s ease, box-shadow 0.3s ease;
-      box-shadow:
-        0 0 8px #b19cd9cc;
+      box-shadow: 0 0 8px #b19cd9cc;
     }
 
-    .btn-primary:hover, .btn-primary:focus {
+    .btn-primary:hover {
       background-color: #c4a3f3;
       color: #1f173d;
-      box-shadow:
-        0 0 14px #d4b7ff;
-      outline: none;
+      box-shadow: 0 0 14px #d4b7ff;
     }
 
-    .nav-link:focus-visible,
-    .btn-primary:focus-visible {
-      outline: 3px solid #c4a3f3;
-      outline-offset: 4px;
+    .preview-section {
+      padding: 40px 20px;
+      text-align: center;
+    }
+
+    .preview-section h2 {
+      margin-bottom: 20px;
+      color: #c4a3f3;
+    }
+
+    .preview-gallery {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      justify-content: center;
+    }
+
+    .preview-gallery img {
+      width: 150px;
+      border-radius: 12px;
+      box-shadow: 0 0 10px #b19cd9aa;
     }
 
     footer {
@@ -131,91 +162,60 @@
       color: #b19cd9;
       text-align: center;
       padding: 16px 0;
-      font-weight: 600;
-      font-size: 0.9rem;
       border-top: 2px solid #b19cd9;
-      position: relative;
-      z-index: 1;
       text-shadow: 1px 1px 1px #000000cc;
-    }
-
-
-    @keyframes float {
-      0%, 100% {
-        transform: translateY(0) translateX(0) scale(1);
-        opacity: 1;
-      }
-      50% {
-        transform: translateY(-15px) translateX(10px) scale(1.1);
-        opacity: 0.8;
-      }
-    }
-
-    @keyframes twinkle {
-      0%, 100% {
-        opacity: 1;
-      }
-      50% {
-        opacity: 0.6;
-      }
-    }
-
-    .floating-star {
-      position: absolute;
-      color: #b19cd9;
-      user-select: none;
-      pointer-events: none;
-      text-shadow: 1px 1px 4px #000000cc;
-      z-index: 0;
-      font-size: 10rem; 
-      animation: 
-        float 6s ease-in-out infinite,
-        twinkle 3s ease-in-out infinite;
     }
   </style>
 </head>
+
 <body>
   <nav class="navbar navbar-expand-lg">
     <div class="container-fluid">
       <a class="navbar-brand" href="index.html">My Portfolio</a>
-      <button
-        class="navbar-toggler"
-        type="button"
-        data-bs-toggle="collapse"
-        data-bs-target="#navbarNav"
-        aria-controls="navbarNav"
-        aria-expanded="false"
-        aria-label="Toggle navigation"
-      >
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav ms-auto">
           <li class="nav-item"><a class="nav-link" href="aboutme.html">About Me</a></li>
           <li class="nav-item"><a class="nav-link" href="showcase.html">Showcase Art</a></li>
-          <li class="nav-item"><a class="nav-link active" href="contact.html" aria-current="page">Contact Info</a></li>
+          <li class="nav-item"><a class="nav-link" href="contact.html">Contact Info</a></li>
         </ul>
       </div>
     </div>
   </nav>
 
-
   <main>
-    <h1 class="display-5 fw-bold"> Welcome to My Portfolio </h1>
+    <h1 class="display-5">Welcome to My Portfolio</h1>
     <p class="lead">I'm a creative student who loves making games, creating art, and making fun projects!</p>
+    <img src="images/banner-example.png" alt="Banner image or drawing" class="hero-image" />
     <a href="showcase.html" class="btn btn-primary">See My Work</a>
   </main>
 
- <!-- Footer -->
+  <section class="preview-section">
+    <h2>Recent Art</h2>
+    <div class="preview-gallery">
+      <img src="images/art1.png" alt="Art 1">
+      <img src="images/art2.png" alt="Art 2">
+      <img src="images/art3.png" alt="Art 3">
+    </div>
+  </section>
+
   <footer>
-    <div class="mb-2">
-      <a href="https://ko-fi.com/theinkedphantom" target="_blank">☕ Ko-fi</a>
-      <a href="https://www.instagram.com/theinkedphantom" target="_blank">📸 Instagram</a>
-      <a href="https://bsky.app/profile/nixienu.bsky.social" target="_blank">🌌 Bluesky</a>
+    <div>
+      <a href="https://ko-fi.com/theinkedphantom" target="_blank">☕ Ko-fi</a> |
+      <a href="https://www.instagram.com/theinkedphantom" target="_blank">📸 Instagram</a> |
+      <a href="https://bsky.app/profile/nixienu.bsky.social" target="_blank">🌌 Bluesky</a> |
       <a href="https://discord.com/users/804021082025230346" target="_blank">🖤 Discord</a>
     </div>
-    <p class="mb-0">&copy; Shana Irene Taljaard 2025</p>
+    <p>&copy; Shana Irene Taljaard 2025</p>
   </footer>
+
+  <!-- Floating decorations -->
+  <span class="floating-star" style="top: 15%; left: 10%;">✦</span>
+  <span class="floating-star" style="top: 30%; left: 80%;">✧</span>
+  <span class="floating-star" style="top: 60%; left: 25%;">🕸️</span>
+  <span class="floating-star" style="top: 75%; left: 70%;">🎀</span>
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
